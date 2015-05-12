@@ -43,3 +43,33 @@ select,
 textarea {
   max-width: 280px;
 }
+#content {
+    padding: 30px;
+    overflow:hidden;
+    border: 1px solid green;
+}
+#working {
+    position:fixed;
+    top: 0;
+    right:0;
+    width:100%;
+    height:100%;
+    z-index: 10;
+    background:rgba(0,0,0,0.5);
+    background-image: url(https://s3-us-west-2.amazonaws.com/nicks-share/Circle+Strafing.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+.leftColumn {
+    float:left;
+    width:300px;
+    border: 1px solid black;
+}
+
+.leftColumn {
+    float:left;
+    width:700px;
+    border: 1px solid black;
+}

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace PageCMS2.Models
         [DataType(DataType.MultilineText)]
         public string Value { get; set; }
 
+        [JsonIgnore]
         public virtual Page Page { get; set; }
     }
 }

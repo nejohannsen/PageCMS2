@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PageCMS2.Models;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace PageCMS2.Controllers
 {
@@ -38,6 +40,29 @@ namespace PageCMS2.Controllers
 
             return View(pages.ToList());
         }
+
+        public ActionResult React(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Page page = db.Pages.Find(id);
+            if (page == null)
+            {
+                return HttpNotFound();
+            }
+            return View(page);
+        }
+
+        public JsonResult ReactJson(int? id)
+        {
+            Page page = db.Pages.Find(id);
+            string json = JsonConvert.SerializeObject(page);
+            return Json(json, JsonRequestBehavior.AllowGet);
+        }
+
+
 
         // GET: Pages/Details/5
         public ActionResult Details(int? id)
